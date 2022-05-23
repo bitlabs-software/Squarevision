@@ -70,24 +70,11 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
-            shrinkResources true
-
-            // useProguard true <-- removed this
-            proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+            signingConfig signingConfigs.debug
 
         }
         release {
-            minifyEnabled true
-            shrinkResources true
-
-            // useProguard true <-- removed this
-            proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
-
+            signingConfig signingConfigs.release
         }
     }
 }
