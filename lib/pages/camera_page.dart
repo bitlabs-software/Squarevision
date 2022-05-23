@@ -119,7 +119,7 @@ class _CameraHomeScreenState extends State<CameraHomeScreen> {
 
   void onCameraSelected(CameraDescription cameraDescription) async {
     if (controller != null) await controller!.dispose();
-    controller = CameraController(cameraDescription, ResolutionPreset.max);
+    controller = CameraController(cameraDescription, ResolutionPreset.max, enableAudio: false);
 
     controller!.addListener(() {
       if (mounted) setState(() {});
