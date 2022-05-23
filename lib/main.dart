@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:chaquopy/chaquopy.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:squarevision/database_helper.dart';
@@ -156,8 +157,20 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Attributions'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: const <Widget>[
-                Text("Icons by https://icons8.com"),
+              children: <Widget>[
+                const Text("Icons by https://icons8.com"),
+                const SizedBox(height: 20),
+                RichText(
+                  text: TextSpan(
+                    text: 'Github',
+                    style: const TextStyle(color: Colors.blue),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        launchUrl(Uri.parse(
+                            'https://github.com/bitlabs-software/Squarevision'));
+                      },
+                  ),
+                ),
               ],
             ),
           ),
